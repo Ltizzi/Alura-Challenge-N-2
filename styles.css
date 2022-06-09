@@ -116,10 +116,14 @@
 }
 
 /* juego */
+.canvas{
+    justify-content: center;
+}
 
 #horca{
     margin-left: auto;
     margin-right: auto;
+    border: 1px solid;
 }
 .divent{
     display: flex;

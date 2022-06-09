@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width">
+        <title>Ahorcado</title>
+        <link rel="stylesheet" href="styles.css">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://fonts.sandbox.google.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0">
+    </head>
+    
+    <body>
+        <img src="assets/Vector.png" alt="ícono Alura" class="alura">
+        <div class="inicio">
+            
+            <button class="btn" id="btn-start">          
+                    Iniciar Juego      
+            </button>
+            
+            <button class="btn" id="btn-word-add">         
+                    Agregar palabra   
+            </button>
+        </div>
+
+        <div class="juego hide">
+            <div class="canvas">
+                <canvas id="horca" height="860px" width="1200"></canvas>
+            </div>
+
+            <button class="btn" id="backFromGame">Regresar</button>
+        </div>
+
+        <div class="addWord hide">
+
+            <h3 class="subtitle-word-add">Agrega palabras secretas</h3>
+            <form id="newWord">
+                <div class="form-elements">
+                    <label for="palabra" class="label-add">Ingrese nueva palabra</label>
+                    <br>
+                    <input type="text" id="palabra" name="palabra">   
+                </div>
+                <div class="error hide">
+                    La palabra solo puede contener letras
+                </div>
+                <div class="success hide">
+                    ¡Palabra agregada!
+                </div>
+                <button class="btn" id="btn-add">
+                    Agregar Palabra
+                </button>
+            </form>
+            
+            <button class="btn" id="backFromAdd">Regresar</button>
+
+        </div>
+
+        <script src="scripts/script.js"></script>
+        <script src="scripts/addword.js"></script>
+    </body>
+
+</html>

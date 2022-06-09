@@ -116,6 +116,11 @@
 }
 
 /* juego */
+
+#horca{
+    margin-left: auto;
+    margin-right: auto;
+}
 .divent{
     display: flex;
     justify-content: center;

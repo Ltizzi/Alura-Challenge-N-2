@@ -24,10 +24,22 @@
         </div>
 
         <div class="juego hide">
-            <div class="canvas">
-                <canvas id="horca" height="860px" width="1200"></canvas>
+            <div class="hide win">
+                <h2 style="text-align: center; color:mediumseagreen">Ganaste!</h2>
             </div>
-
+            <div class="hide lost">
+                <h2 style="text-align: center; color:red;">Perdiste!</h2>
+            </div>
+            <div class="canvas">
+           
+                <canvas id="horca" height="860px" width="1200"></canvas>
+               
+            </div>
+            <!-- <div class="divent">
+                <input type="text" class="entrada">
+            </div> -->
+     
+            <button class="btn" id="restart">Reiniciar juego</button>
             <button class="btn" id="backFromGame">Regresar</button>
         </div>
 
@@ -57,6 +69,7 @@
 
         <script src="scripts/script.js"></script>
         <script src="scripts/addword.js"></script>
+        <script src="scripts/drawer.js"></script>
     </body>
 
 </html>

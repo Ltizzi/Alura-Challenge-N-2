@@ -143,13 +143,12 @@
 
 /* juego */
 .canvas{
-    justify-content: center;
-    margin-left: 17%;
-    margin-right: 17%;
+
     margin-bottom: 1%;
 }
 
 #horca{
+    display: block;
     margin-left: auto;
     margin-right: auto;
     border: 1px solid;

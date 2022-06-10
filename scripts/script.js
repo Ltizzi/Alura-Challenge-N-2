@@ -20,11 +20,13 @@ let derrota = false;
 
 
 
+
+
 btnStart.addEventListener("click", function() {
     changeDom(".inicio", ".juego");
     intentos = 6;
     palabra = pickSecretWord();
- 
+    callCanvas();
     clearScreen();
     drawLines();
     dibujarHorca();
@@ -49,24 +51,20 @@ btnBackFromAdd.addEventListener("click", function(){
 });
 
 
-//control del juego en sí
-
 document.addEventListener("keypress", function(event){
     let tecla = (event.key).toUpperCase();
     if (tecla.match(mayusculas)){
- 
+    
         letras = palabra.split('');     
-   
+    
         calcularAciertos(tecla);
         
-          
+            
     }
     winOrLost();
-    if (victoria || derrota) {
-        return false;
-    }  
-   
 });
+
+
 
 
 function changeDom(actual, proximo){
@@ -83,6 +81,12 @@ function pickSecretWord(){
     return palabras[Math.floor(Math.random()*palabras.length)];
 }
 
+
+
+
+
+
+
 function calcularAciertos(tecla){
 
     if (!aciertos.includes(tecla)) {
@@ -92,10 +96,10 @@ function calcularAciertos(tecla){
             if (tecla == letra && !cantidadLetras.includes(tecla)) {
                 rightLetter(i);
                 cantidadLetras.push(tecla);
-                console.log(cantidadLetras);
+                
                 if(letras.length != aciertos.length) {
                     cantidadLetras.forEach((char) => aciertos.push(char));
-                    console.log(aciertos);
+          
                 };   
             }   
         }
@@ -116,13 +120,22 @@ function reiniciarJuego(){
     errores = 0;
     letras = [];
     aciertos = [];
+    letrasErradas = [];
+
+    victoria = false;
+    derrota = false;
+    finalizado = false;
+
+
     palabra = pickSecretWord();
     win.classList.add("hide");
     lost.classList.add("hide");
-
+    callCanvas();
     clearScreen();
     drawLines();
     dibujarHorca();
+    dibujarDesdichado();
+
 }
 
 function winOrLost(){
@@ -131,16 +144,21 @@ function winOrLost(){
     if (letras.length == (aciertos.length)) {
         win.classList.remove("hide");
         victoria = true;
+        killCanvas();
     }
     if (intentos == 0) {
         lost.classList.remove("hide");
         derrota = true;
         dibujarCara();
+        killCanvas();
+        
     }
-    if (victoria){
-        derrota = true;
-    }
-    
+    // if (victoria){
+    //     derrota = true;
+    // }
+        
 }
+
+
 
 

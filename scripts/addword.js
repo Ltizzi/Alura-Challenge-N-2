@@ -28,5 +28,4 @@ btnAdd.addEventListener("click", function(event) {
     }
 
     
-    console.log(palabras);
 });

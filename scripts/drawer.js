@@ -1,47 +1,66 @@
-var canvas = document.getElementById("horca").getContext('2d');
+var canvas;
 
+function callCanvas(){
+    canvas = document.getElementById("horca").getContext('2d');
+}
+
+function killCanvas(){
+    canvas = null;
+}
 
 function drawLines(){
-    canvas.lineWidth = 6;
-    canvas.lineCap = "round";
-    canvas.lineJoin = "round";
-    canvas.strokeStyle = "#0a3871";
-    canvas.beginPath();
 
-    let ancho = 610/palabra.length;
-    for (let i = 0; i< palabra.length; i++) {
-        canvas.moveTo(200+(ancho*i), 440);
-        canvas.lineTo(150+(ancho*i), 440);
-    }
-    canvas.stroke();
-    canvas.closePath();
+        canvas.lineWidth = 6;
+        canvas.lineCap = "round";
+        canvas.lineJoin = "round";
+        canvas.strokeStyle = "#0a3871";
+        canvas.beginPath();
+    
+        let ancho = 610/palabra.length;
+        for (let i = 0; i< palabra.length; i++) {
+            canvas.moveTo(200+(ancho*i), 440);
+            canvas.lineTo(150+(ancho*i), 440);
+        }
+        canvas.stroke();
+        canvas.closePath();
+  
+   
 
 }
 
 function rightLetter(index){
-    canvas.font = 'bold 48px Inter';
-    canvas.lineWidth= 6;
-    canvas.lineCap = "round";
-    canvas.lineJoin = "round";
-    canvas.fillStyle = "#0a3871";
-
-    let ancho = 610/palabra.length;
-    canvas.fillText(palabra[index], 155+(ancho*index), 420);
+   
+        canvas.font = 'bold 48px Inter';
+        canvas.lineWidth= 6;
+        canvas.lineCap = "round";
+        canvas.lineJoin = "round";
+        canvas.fillStyle = "#0a3871";
+    
+        let ancho = 610/palabra.length;
+        canvas.fillText(palabra[index], 155+(ancho*index), 420);
+    
+  
    
 }
 
 function wrongLetter(letra, intentos){
-    canvas.font = 'bold 40px Inter';
-    canvas.lineWidth= 6;
-    canvas.lineCap = "round";
-    canvas.lineJoin = "round";
-    canvas.fillStyle = "#0a3871";
 
-    canvas.fillText(letra, 135+(40*(10-intentos)), 510, 40);
+        canvas.font = 'bold 40px Inter';
+        canvas.lineWidth= 6;
+        canvas.lineCap = "round";
+        canvas.lineJoin = "round";
+        canvas.fillStyle = "#0a3871";
+    
+        canvas.fillText(letra, 135+(40*(10-intentos)), 510, 40);
+    
+  
 }
 
 function clearScreen(){
-    canvas.clearRect(0,0,900,560);
+
+        canvas.clearRect(0,0,900,560);
+    
+
 }
 
 function dibujarHorca(){
@@ -81,6 +100,7 @@ function dibujarDesdichado(){
 
 
 function dibujarBase(){
+ 
     canvas.lineWidth = 10;
     canvas.lineCap = "round";
     canvas.lineJoin = "round";
@@ -90,10 +110,12 @@ function dibujarBase(){
     canvas.lineTo(520,350);
     canvas.stroke();
     canvas.closePath();
+    
 
 }
 
 function dibujarColumna(){
+
     canvas.lineWidth = 7;
     canvas.lineCap = "round";
     canvas.lineJoin = "round";
@@ -102,10 +124,13 @@ function dibujarColumna(){
     canvas.moveTo(385,350);
     canvas.lineTo(385,50);
     canvas.stroke();
-    canvas.closePath();
+    canvas.closePath(); 
+    
+  
 }
 
 function dibujarSosten(){
+
     canvas.lineWidth = 5;
     canvas.lineCap = "round";
     canvas.lineJoin = "round";
@@ -115,9 +140,12 @@ function dibujarSosten(){
     canvas.lineTo(530,50);
     canvas.stroke();
     canvas.closePath();
+    
+
 }
 
 function dibujarSoga(){
+
     canvas.lineWidth = 5;
     canvas.lineCap = "round";
     canvas.lineJoin = "round";
@@ -127,9 +155,12 @@ function dibujarSoga(){
     canvas.lineTo(530,75);
     canvas.stroke();
     canvas.closePath();
+    
+  
 }
 
 function dibujarCabeza(){
+  
     canvas.lineWidth = 3;
     canvas.lineCap = "round";
     canvas.lineJoin = "round";
@@ -141,6 +172,7 @@ function dibujarCabeza(){
 }
 
 function dibujarCara(){
+
     canvas.lineWidth = 3;
     canvas.lineCap = "round";
     canvas.lineJoin = "round";
@@ -166,9 +198,12 @@ function dibujarCara(){
     canvas.lineTo(545,122);
     canvas.stroke();
     canvas.closePath();
+    
+ 
 }
 
 function dibujarTronco(){
+    
     canvas.lineWidth = 3;
     canvas.lineCap = "round";
     canvas.lineJoin = "round";
@@ -178,9 +213,12 @@ function dibujarTronco(){
     canvas.lineTo(530,240);
     canvas.stroke();
     canvas.closePath();
+    
+  
 }
 
 function dibujarPiernaIzquierda(){
+  
     canvas.lineWidth = 3;
     canvas.lineCap = "round";
     canvas.lineJoin = "round";
@@ -190,9 +228,12 @@ function dibujarPiernaIzquierda(){
     canvas.lineTo(505,290);
     canvas.stroke();
     canvas.closePath();
+   
+
 }
 
 function dibujarPiernaDerecha(){
+   
     canvas.lineWidth = 3;
     canvas.lineCap = "round";
     canvas.lineJoin = "round";
@@ -202,9 +243,12 @@ function dibujarPiernaDerecha(){
     canvas.lineTo(555,290);
     canvas.stroke();
     canvas.closePath();
+    
+
 }
 
 function dibujarBrazoIzquierdo(){
+ 
     canvas.lineWidth = 3;
     canvas.lineCap = "round";
     canvas.lineJoin = "round";
@@ -214,6 +258,7 @@ function dibujarBrazoIzquierdo(){
     canvas.lineTo(505,200);
     canvas.stroke();
     canvas.closePath();
+ 
 }
 
 function dibujarBrazoDerecho(){
@@ -226,4 +271,5 @@ function dibujarBrazoDerecho(){
     canvas.lineTo(555,200);
     canvas.stroke();
     canvas.closePath();
+
 }

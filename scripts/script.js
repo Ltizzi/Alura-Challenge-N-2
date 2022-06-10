@@ -4,7 +4,6 @@ let btnAddWord = document.querySelector("#btn-word-add");
 let btnBackFromGame = document.querySelector("#backFromGame");
 let btnBackFromAdd = document.querySelector("#backFromAdd");
 let btnRestart = document.querySelector("#restart");
-// let juego = document.querySelector(".entrada");
 let win = document.querySelector(".win");
 let lost = document.querySelector(".lost");
 let mayusculas = /[A-Z]/;
@@ -13,6 +12,7 @@ let intentos = 0;
 let errores = 0;
 let letras = [];
 let aciertos = [];
+let letrasErradas = [];
 
 let victoria = false;
 let derrota = false;
@@ -27,6 +27,8 @@ btnStart.addEventListener("click", function() {
  
     clearScreen();
     drawLines();
+    dibujarHorca();
+    dibujarDesdichado();
 
 });
 
@@ -45,6 +47,9 @@ btnBackFromGame.addEventListener("click", function(){
 btnBackFromAdd.addEventListener("click", function(){
     changeDomToHome(".addWord");
 });
+
+
+//control del juego en sí
 
 document.addEventListener("keypress", function(event){
     let tecla = (event.key).toUpperCase();
@@ -79,26 +84,29 @@ function pickSecretWord(){
 }
 
 function calcularAciertos(tecla){
-    let errorDibujado = false;
-    
-    for (let i = 0; i < letras.length; i++){
-        let letra = letras[i];
-        let cantidadLetras = [];
-        if (tecla == letra) {
-            rightLetter(i);
-            cantidadLetras.push(tecla);
-            console.log(cantidadLetras);
-            if(letras.length != aciertos.length) {
-                cantidadLetras.forEach((char) => aciertos.push(char));
-                console.log(aciertos);
-            };   
-        }   
+
+    if (!aciertos.includes(tecla)) {
+        for (let i = 0; i < letras.length; i++){
+            let letra = letras[i];
+            let cantidadLetras = [];
+            if (tecla == letra && !cantidadLetras.includes(tecla)) {
+                rightLetter(i);
+                cantidadLetras.push(tecla);
+                console.log(cantidadLetras);
+                if(letras.length != aciertos.length) {
+                    cantidadLetras.forEach((char) => aciertos.push(char));
+                    console.log(aciertos);
+                };   
+            }   
+        }
     }
-    if (!letras.includes(tecla)) {        
+    
+    if (!letras.includes(tecla) && !letrasErradas.includes(tecla)) {        
         intentos-=1;
-        errores+=1;          
-        errorDibujado = true;
+        errores+=1;
+        letrasErradas.push(tecla);          
         wrongLetter(tecla, intentos);
+        dibujarDesdichado();
         
     }
 }
@@ -114,6 +122,7 @@ function reiniciarJuego(){
 
     clearScreen();
     drawLines();
+    dibujarHorca();
 }
 
 function winOrLost(){
@@ -126,6 +135,7 @@ function winOrLost(){
     if (intentos == 0) {
         lost.classList.remove("hide");
         derrota = true;
+        dibujarCara();
     }
     if (victoria){
         derrota = true;

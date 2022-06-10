@@ -8,8 +8,34 @@
 /* Inicio */
 
 .alura{
-    margin-top: 1.5rem;
+    margin-top: 3rem;
     margin-left: 1.5rem;
+    position: relative;
+}
+
+.firm{
+    display: inline-flex;
+    margin-left: 50px;
+
+}
+
+
+.title{
+    font-size: 22px;
+    color: #143781;
+    display: inline;
+    vertical-align: top;
+    
+}
+
+.subtitle{
+    color: #1b4cb6;
+    display: inline-flex;
+    vertical-align: top;
+    margin-top: 5px;
+    margin-left: 5px;
+    font-style: italic;
+
 }
 
 .inicio{
@@ -118,6 +144,9 @@
 /* juego */
 .canvas{
     justify-content: center;
+    margin-left: 17%;
+    margin-right: 17%;
+    margin-bottom: 1%;
 }
 
 #horca{
@@ -142,4 +171,27 @@
     font-weight: bolder;
     font-size: 18px;
     color: #0A3871;
+}
+
+
+
+.txt-win{
+    text-align: center; 
+    color:rgb(18, 80, 46);
+    background-color: #b0e2b0;
+    padding: 1rem;
+    border: 2px #10a810 solid;
+    width: 200px;
+    margin: 10px auto;
+    
+}
+
+.txt-lost{
+    text-align: center;
+    color:red;
+    background-color: lightsalmon;
+    padding: 1rem;
+    border: 2px lightcoral solid;
+    width: 200px;
+    margin: 10px auto;
 }

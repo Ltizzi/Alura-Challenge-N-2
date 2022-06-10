@@ -11,7 +11,15 @@
     </head>
     
     <body>
-        <img src="assets/Vector.png" alt="ícono Alura" class="alura">
+        <header>
+            <img src="assets/Vector.png" alt="ícono Alura" class="alura">
+            <div class="firm">
+                
+                <h1 class="title">Juego de Ahorcado</h1>
+                <p class="subtitle">made by Ltizzi</p>
+            </div>
+        </header>
+        
         <div class="inicio">
             
             <button class="btn" id="btn-start">          
@@ -27,14 +35,14 @@
          
             <div class="canvas">
            
-                <canvas id="horca" height="860px" width="1200"></canvas>
+                <canvas id="horca" height="560px" width="900"></canvas>
                
             </div>
             <div class="hide win">
-                <h2 style="text-align: center; color:mediumseagreen">Ganaste!</h2>
+                <h2 class="txt-win">Ganaste!</h2>
             </div>
             <div class="hide lost">
-                <h2 style="text-align: center; color:red;">Perdiste!</h2>
+                <h2 class="txt-lost">Perdiste!</h2>
             </div>
      
             <button class="btn" id="restart">Reiniciar juego</button>
